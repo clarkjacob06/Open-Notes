@@ -13,7 +13,6 @@ app.use(express.json());
 app.use('/api/notes', notesRouter);
 
 
-
 connectDB().then(() => {
 app.listen(PORT, () => {
     console.log('Server active')
