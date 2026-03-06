@@ -46,7 +46,7 @@ function ContentPage() {
                 content: note.content
             });
 
-            toast.success('Note updated');
+            toast.success('Note updated successfully');
             navigate('/');
         } catch (error) {
             toast.error('Failed to update note');

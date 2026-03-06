@@ -17,7 +17,7 @@ function CreatePage() {
             if(!title || !content) return toast.error('All field are required');
 
             await api.post('/notes', {title, content});
-            toast.success('Note created');
+            toast.success('Note created successfully');
 
             navigate('/');
 

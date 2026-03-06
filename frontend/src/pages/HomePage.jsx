@@ -30,22 +30,12 @@ function HomePage() {
         document.title = 'OpenNotes Home';
     }, []);
 
-    async function handleDelete(noteId) {
-        await api.delete(`/notes/${noteId}`);
-        setNotes(n => n.filter(n => n._id !== noteId));
-        toast.success('Note deleted');
-    }
-
-    function handleView(noteId) {
-        navigate(`/content/${noteId}`);
-    }
-
     return(
         <>  
             {notes.length <= 0 && <h1>No notes yet</h1>}
             {loading && <div>Loading...</div>}
             {notes.map((note) => (
-                <NoteCard delete={() => handleDelete(note._id)} view={() => handleView(note._id)} noteProp={note} key={note._id}></NoteCard>
+                <NoteCard noteProp={note} key={note._id} setNotesProp={setNotes}></NoteCard>
             ))}
 
             <button onClick={() => navigate('/create')}>Create Note</button>
